@@ -14,8 +14,8 @@ public class AccessoryResource {
 	@GetMapping
 	public ResponseEntity<Accessory> findAll() {
 		
-		Accessory a = new Accessory(1, "Mouse", "Pavuna", 3);
-		
+		Accessory a = new Accessory();
+			
 		
 		return ResponseEntity.ok().body(a);
 		

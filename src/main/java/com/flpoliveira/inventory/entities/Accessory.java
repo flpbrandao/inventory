@@ -1,6 +1,7 @@
 package com.flpoliveira.inventory.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Objects;
 
 import javax.persistence.Entity;
@@ -16,20 +17,34 @@ public class Accessory implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String name;
+	private String ticket;
 	private String site;
 	private Integer quantity;
+	private Date lastUpdated;
+	private String lastUpdatedBy;
+	private Integer totalReleased;
+	
 
 	public Accessory() {
 
 	}
 
-	public Accessory(Integer id, String name, String site, Integer quantity) {
-		super();
+	
+
+	public Accessory(Integer id, String name, String ticket, String site, Integer quantity, Date lastUpdated, String lastUpdatedBy,
+			Integer totalReleased) {
+		
 		this.id = id;
 		this.name = name;
+		this.ticket = ticket;
 		this.site = site;
 		this.quantity = quantity;
+		this.lastUpdated = lastUpdated;
+		this.lastUpdatedBy = lastUpdatedBy;
+		this.totalReleased = totalReleased;
 	}
+
+
 
 	public Integer getId() {
 		return id;
@@ -45,6 +60,14 @@ public class Accessory implements Serializable{
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public String getTicket() {
+		return ticket;
+	}
+
+	public void setTicket(String ticket) {
+		this.ticket = ticket;
 	}
 
 	public String getSite() {
@@ -63,6 +86,31 @@ public class Accessory implements Serializable{
 		this.quantity = quantity;
 	}
 
+	public Date getLastUpdated() {
+		return lastUpdated;
+	}
+
+	public void setLastUpdated(Date lastUpdated) {
+		this.lastUpdated = lastUpdated;
+	}
+	
+
+	public String getLastUpdatedBy() {
+		return lastUpdatedBy;
+	}
+
+	public void setLastUpdatedBy(String lastUpdatedBy) {
+		this.lastUpdatedBy = lastUpdatedBy;
+	}
+
+	public Integer getTotalReleased() {
+		return totalReleased;
+	}
+
+	public void setTotalReleased(Integer totalReleased) {
+		this.totalReleased = totalReleased;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -79,5 +127,17 @@ public class Accessory implements Serializable{
 		Accessory other = (Accessory) obj;
 		return Objects.equals(id, other.id);
 	}
+
+
+
+	@Override
+	public String toString() {
+		return "Accessory [id=" + id + ", name=" + name + ", ticket=" + ticket + ", site=" + site + ", quantity="
+				+ quantity + ", lastUpdated=" + lastUpdated + ", lastUpdatedBy=" + lastUpdatedBy + ", totalReleased="
+				+ totalReleased + "]";
+	}
+
+	
+	
 
 }
